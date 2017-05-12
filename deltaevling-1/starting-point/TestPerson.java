@@ -31,8 +31,14 @@ public class TestPerson {
         System.out.println("Please enter a valid year in the format YYYY. Start over with name.");
         continue;
       }
+      double weight = 0.0;
       System.out.print("Weight (use . as decimal point): ");
-      double weight = Double.parseDouble(sc.nextLine());
+      try {
+        weight = Double.parseDouble(sc.nextLine());
+      } catch (NumberFormatException nfe) {
+        System.out.println("Please enter a valid weight. Start over with name.");
+        continue;
+      }
       persons.add(new Person(name, birthYear, weight));
     }
     return persons;
