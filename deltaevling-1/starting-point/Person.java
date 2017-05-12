@@ -17,7 +17,7 @@ public class Person {
   }
 
   public int age() {
-    return birthYear - Calendar.getInstance().get(Calendar.YEAR);;
+    return Calendar.getInstance().get(Calendar.YEAR) - birthYear;
   }
 
   public double weight() {
