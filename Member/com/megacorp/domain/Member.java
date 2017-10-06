@@ -1,5 +1,4 @@
-import java.io.*;
-import java.util.*;
+package com.megacorp.domain;
 
 public class Member {
 
@@ -7,23 +6,16 @@ public class Member {
   private String   email;
   private int      id;
 
-  private static final int HASH_PRIME = 1234;
+  private static final int HASH_PRIME = 17;
 
   public Member(String name, String email, int id) {
     this.name  = name;
     this.email = email;
     this.id    = id;
   }
-
-  // default constructor
-  public Member() {
-    Scanner sc = new Scanner(System.in);
-    int id = sc.nextInt();
-    String name = sc.next();
-    String email = sc.next();
+  public Member(String name, String email) {
     this.name  = name;
     this.email = email;
-    this.id    = id;
   }
 
   public int id() {
@@ -57,40 +49,13 @@ public class Member {
     return this.name.equals(m.name) && this.email.equals(m.email) && this.id == m.id  ;
   }
 
-  public Member(String names) {
-    Scanner sc = new Scanner(names);
-    sc.useDelimiter(",");
-    String name = sc.next();
-    String email = sc.next();
-    int id = sc.nextInt();
-    this.name  = name;
-    this.email = email;
-    this.id    = id;
-  }
-  
-  public ArrayList<Member> readFile(String fileString) {
-    ArrayList<Member> member = new ArrayList<Member>();
-    try {
-      File fileName = new File(fileString);
-      Scanner fs = new Scanner(fileName);
-      while(fs.hasNext()) {
-        String line = fs.nextLine();
-        Member m = new Member(line);
-        member.add(m);
-      }
-    } catch (Exception e) { ; }
-    return member;
+  public int hashCode () {
+    int result = HASH_PRIME;
+    result = 31 * result + name.hashCode();
+    result = 31 * result + email.hashCode();
+    result = 31 * result + id;
+    return result;
   }
 
-  public static void main(String[] args) {
-    Member m = new Member();
-    ArrayList<Member> member = m.readFile("members.csv");
-    System.out.println("Member: " + m);
-
-    for (int i=0; i<member.size(); i++) {
-      System.out.println("* " + member.get(i));
-    }
-    
-  }
     
 }
