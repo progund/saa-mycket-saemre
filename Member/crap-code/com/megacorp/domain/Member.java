@@ -7,7 +7,7 @@
  *
  * Rikard and Henrik - juneday.se
  *
- * [1] https://vimeo.com/channels/1243986
+ * [1] https://vimeo.com/channels/1243986 (Swedish)
  */
 import java.io.*;
 import java.util.*;
