@@ -1,3 +1,13 @@
+/*
+ *
+ * This code is part of a video series making fun or bad programming. 
+ * Please:
+ * 1. do not use any of the code below - for your own sake
+ * 2. do not hold us responsible for it - we only wrote it
+ *
+ * Rikard and Henrik - juneday.se
+ *
+ */
 import java.io.*;
 import java.util.*;
 
